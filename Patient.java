@@ -3,17 +3,22 @@ public class Patient {
 	private int age;
 	private String illness;
 	private Patient nextPatient;
+	private Patient previousPatient;
+	
 	
 	public Patient(String name, int age, String illness) {
 		this.name = name;
 		this.age = age;
 		this.illness = illness;
 		this.nextPatient = null;
+		this.previousPatient = null;
+		
 	}
 	
 	public void addPatient(Patient newPatient) {
 		if (this.nextPatient == null) {
-			this.nextPatient = newPatient;			
+			this.nextPatient = newPatient;
+			newPatient.previousPatient = this;
 		}
 		else {
 			this.nextPatient.addPatient(newPatient);
@@ -47,6 +52,8 @@ public class Patient {
 			return false; 			
 		}
 		else if (this.nextPatient.name.equals(p.name)) {
+			
+			this.nextPatient.nextPatient.previousPatient = this;
 			this.nextPatient = this.nextPatient.nextPatient;
 			return true;
 		}

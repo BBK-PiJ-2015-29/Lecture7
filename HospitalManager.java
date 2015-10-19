@@ -8,7 +8,7 @@ public class HospitalManager {
 	}
 	
 	
-	public void launch() {
+	private void launch() {
 		Patient firstPatient = new Patient("Dave", 22, "Third Nipple");
 		patientListStart = firstPatient;
 		Patient secondPatient = new Patient("Arnold", 55, "Sudden chest hair loss");
@@ -50,5 +50,13 @@ public class HospitalManager {
 		System.out.println("There are now " + patientListStart.countPatients() + " patients");
 		System.out.println(patientListStart.getPatients(patientListStart));
 		
+		//iterative counter
+		int count = 1;
+		Patient temp = patientListStart;
+		do {
+			count++;
+			temp = temp.getNextPatient();
+		} while(temp.getNextPatient() != null);
+		System.out.println("Iteratively calculated patient number: " + count);
 	}
 }
