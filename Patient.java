@@ -20,6 +20,18 @@ public class Patient {
 		}
 	}
 	
+	public int countPatients() {
+		int count = 0;
+		if (this.nextPatient == null) {
+			count++;
+			return count;
+		}
+		else {
+			count++;
+			count += this.nextPatient.countPatients();
+			return count;
+		}
+	}
 	public String getPatients(Patient p){
 		//String.Format("this %d",myint)
 		String str = "";

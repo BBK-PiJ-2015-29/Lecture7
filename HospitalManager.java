@@ -12,36 +12,42 @@ public class HospitalManager {
 		Patient firstPatient = new Patient("Dave", 22, "Third Nipple");
 		patientListStart = firstPatient;
 		Patient secondPatient = new Patient("Arnold", 55, "Sudden chest hair loss");
-		firstPatient.addPatient(secondPatient);
+		patientListStart.addPatient(secondPatient);
 		Patient thirdPatient = new Patient("Daniel", 34, "Vestigial tail");
-		secondPatient.addPatient(thirdPatient);
+		patientListStart.addPatient(thirdPatient);
 		Patient forthPatient = new Patient("Daphne", 29, "Repeated slight scares and exposure to cannabis smoke");
-		thirdPatient.addPatient(forthPatient);
+		patientListStart.addPatient(forthPatient);
 		Patient fifthPatient = new Patient("William", 85, "Bloated Ego");
-		forthPatient.addPatient(fifthPatient);
+		patientListStart.addPatient(fifthPatient);
 		Patient sixthPatient = new Patient("Elizabeth", 89, "Fear of own face");
-		fifthPatient.addPatient(sixthPatient);
+		patientListStart.addPatient(sixthPatient);
 		Patient seventhPatient = new Patient("Katy", 39, "Reverse anorexia");
-		sixthPatient.addPatient(seventhPatient);
+		patientListStart.addPatient(seventhPatient);
 		Patient eighthPatient = new Patient("Mark", 59, "Sudden savant-like pianist skill");
-		seventhPatient.addPatient(eighthPatient);
+		patientListStart.addPatient(eighthPatient);
 		Patient ninthPatient = new Patient("Grant", 44, "Haunted");
-		eighthPatient.addPatient(ninthPatient);
+		patientListStart.addPatient(ninthPatient);
 		
 		//Create new patient object within the add patient method.
 		
 		ninthPatient.addPatient(new Patient("Elena", 65, "Backwards facing foot"));
 		
+		System.out.println("There are " + patientListStart.countPatients() + " patients");
+		
 		System.out.println(patientListStart.getPatients(patientListStart));
+		
 		
 		patientListStart.deletePatient(sixthPatient);
 		patientListStart.deletePatient(secondPatient);
 		
+		System.out.println("There are now " + patientListStart.countPatients() + " patients");
+		
 		System.out.println(patientListStart.getPatients(patientListStart));
 		
-		patientListStart.deletePatient(firstPatient);
-		patientListStart = secondPatient;
 		
+		patientListStart = thirdPatient;
+		
+		System.out.println("There are now " + patientListStart.countPatients() + " patients");
 		System.out.println(patientListStart.getPatients(patientListStart));
 		
 	}
