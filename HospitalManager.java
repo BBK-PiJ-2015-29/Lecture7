@@ -40,7 +40,7 @@ public class HospitalManager {
 			count++;
 			temp = temp.getNextPatient();
 		} while(temp.getNextPatient() != null);
-		System.out.println("Iteratively calculated patient number: " + count);
+		System.out.println("Iteratively calculated patient number: " + count + "\n");
 		
 		//print patient list forwards and backwards using recursive methods
 		System.out.println("Patient list starting at first patient and descending");
@@ -56,15 +56,28 @@ public class HospitalManager {
 		System.out.println("There are now " + patientListStart.countPatients() + " patients");
 		
 		//new recursive print
+		System.out.println("Patient list starting at first patient and descending");
 		System.out.println(patientListStart.getPatientsDescend(patientListStart));
+		System.out.println("Patient list starting at last patient and ascending");
+		System.out.println(patientListEnd.getPatientsAscend(patientListEnd));
 				
-		// delete first patient, set start of list to 3rd as 2nd has already been deleted
-		patientListStart = thirdPatient;
+				
+		//add a new element to the list
+		Patient eleventhPatient = new Patient("Brian", 35, "Sympathetic pregnancy");
+		patientListStart.addPatient(eleventhPatient);
+		patientListEnd = eleventhPatient;
 		
-		// new patient count and print
+		// try to delete a non list patient
+		patientListStart.deletePatient(sixthPatient);
+		Patient twelfthPatient = new Patient("Darlene", 34, "Human Parthenogenesis");
+		patientListStart.deletePatient(twelfthPatient);
+		
+		//recursive counter
 		System.out.println("There are now " + patientListStart.countPatients() + " patients");
+		//new recursive print
+		System.out.println("Patient list starting at first patient and descending");
 		System.out.println(patientListStart.getPatientsDescend(patientListStart));
-		
-		
+		System.out.println("Patient list starting at last patient and ascending");
+		System.out.println(patientListEnd.getPatientsAscend(patientListEnd));
 	}
 }
