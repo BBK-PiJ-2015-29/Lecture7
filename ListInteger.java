@@ -10,14 +10,44 @@ public class ListInteger {
 	}
 	
 	public void addListInteger(ListInteger input) {
-		if(this.next == null) {
+		//unsorted list
+		/*if(this.next == null) {
 			this.next = input;
 			input.prev = this;
 		}
 		else {
 			this.next.addListInteger(input);
+		}*/
+		//sorted list
+		
+		if (this.value <= input.value) {
+			if (this.next == null) {
+				this.next = input;
+				input.prev = this;	
+			}
+			else {
+				this.next.addListInteger(input);
+			}
+		}
+		else {
+			if ((this.prev == null)) {
+				this.prev = input;
+				input.next = this;
+			}
+			//else if((this.prev != null) ) {
+			//if(this.prev.value <= input.value) {
+			//	this.prev.next = input;
+			//	input.prev = this.prev;
+			//	input.next = this;
+			//	this.prev = input;
+			//
+			//}
+			else {
+				this.prev.addListInteger(input);
+			}
 		}
 	}
+	
 	
 	public String getList(ListInteger start) {
 		String str = "";
