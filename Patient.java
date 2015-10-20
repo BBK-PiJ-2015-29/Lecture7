@@ -37,16 +37,24 @@ public class Patient {
 			return count;
 		}
 	}
-	public String getPatients(Patient p){
+	public String getPatientsDescend(Patient listStart){
 		//String.Format("this %d",myint)
 		String str = "";
-		if (p != null) {
-			str = p.getName() + ", " + p.getAge() + ", " + p.getIllness() + "\n";
-			return str + getPatients(p.nextPatient);		
+		if (listStart != null) {
+			str = listStart.getName() + ", " + listStart.getAge() + ", " + listStart.getIllness() + "\n";
+			return str + getPatientsDescend(listStart.nextPatient);		
 		}
 		return str;	
 	}
 	
+	public String getPatientsAscend(Patient listEnd) {
+		String str = "";
+		if (listEnd != null) {
+			str = listEnd.getName() + ", " + listEnd.getAge() + ", " + listEnd.getIllness() + "\n";
+			return str + getPatientsAscend(listEnd.previousPatient);
+		}
+		return str;
+	}
 	public boolean deletePatient(Patient p) {
 		if (this.nextPatient == null) {
 			return false; 			
@@ -96,5 +104,10 @@ public class Patient {
 		return this.nextPatient;
 	}
 	
-	
+	public void setPrevPatient(Patient previousPatient) {
+		this.previousPatient = previousPatient;
+	}
+	public Patient getPrevPatient() {
+		return this.previousPatient;
+	}
 }
