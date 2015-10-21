@@ -18,12 +18,18 @@ public class ListInteger {
 		else {
 			this.next.addListInteger(input);
 		}*/
-		//sorted list
 		
+		//sorted list
 		if (this.value <= input.value) {
 			if (this.next == null) {
 				this.next = input;
 				input.prev = this;	
+			}
+			else if (this.next.value > input.value) {
+				this.next.prev = input;
+				input.next = this.next;
+				this.next = input;
+				input.prev = this;
 			}
 			else {
 				this.next.addListInteger(input);
@@ -34,14 +40,12 @@ public class ListInteger {
 				this.prev = input;
 				input.next = this;
 			}
-			//else if((this.prev != null) ) {
-			//if(this.prev.value <= input.value) {
-			//	this.prev.next = input;
-			//	input.prev = this.prev;
-			//	input.next = this;
-			//	this.prev = input;
-			//
-			//}
+			else if(this.prev.value <= input.value) {
+				this.prev.next = input;
+				input.prev = this.prev;
+				input.next = this;
+				this.prev = input;
+			}
 			else {
 				this.prev.addListInteger(input);
 			}
