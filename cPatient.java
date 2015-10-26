@@ -24,7 +24,38 @@ public class cPatient {
 	}
 	
 	//delete patient method
-	public void deletePatient(cPatient start) {
-		
+	public void deletePatient( cPatient toBeDeleted) {
+		if (this.next == toBeDeleted) {
+			this.next = this.next.next;
+		}
+		else {
+			this.next.deletePatient(toBeDeleted);
+		}
 	}
+	
+	//getters and setters
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getAge() {
+		return this.age;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public String getIllness() {
+		return this.illness;
+	}
+	
+	public void setName(String illness) {
+		this.illness = illness;
+	}
+
 }
