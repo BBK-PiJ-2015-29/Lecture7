@@ -12,7 +12,7 @@ public class MarkCounter {
 			System.out.print("> ");
 			input = System.console().readLine();
 			mark = Integer.parseInt(input);
-			if (mark < 50) {
+			if ((mark < 50) && (mark >=0)) {
 				fails++;
 			}
 			else if (mark < 70) {
