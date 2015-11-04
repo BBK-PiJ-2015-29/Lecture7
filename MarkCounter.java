@@ -30,7 +30,7 @@ public class MarkCounter {
 		System.out.print(distinctions + " distinctions, ");
 		System.out.print(passes + " passes, ");
 		System.out.print(fails + " fails ");
-		System.out.print("(plus " + invalid + " invalid).");
+		System.out.println("(plus " + invalid + " invalid).");
 	}
 	
 	public static void main(String[] args) {
